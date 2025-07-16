@@ -5,7 +5,8 @@ const bookSchema = new mongoose.Schema({
         type: String,
         unique: true,
         trim: true,
-        required: true
+        required: true,
+        lowercase: true
     },
     author: {
         type: String,
@@ -21,10 +22,16 @@ const bookSchema = new mongoose.Schema({
     quantity: {
         type: Number,
         required: true,
-        default: 0
+        default: 0,
+        min: 1
     },
     available: {
-        type: Number
+        type: Number,
+        min: 0
+    },
+    bookImage: {
+        type: String,
+        default: ""
     }
 }, {timestamps: true})
 
